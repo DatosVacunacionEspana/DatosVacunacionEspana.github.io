@@ -15,7 +15,7 @@ var lc;
 const RATIO_GRAFICA_PC = 3.5;
 const RATIO_GRAFICA_MOBIL = 1.1;
 const RATIO_GRAFICA_PC_CA = 2.0;
-const RATIO_GRAFICA_MOBIL_CA = 0.8;
+const RATIO_GRAFICA_MOBIL_CA = 0.7;
 let ratio_graficos;
 let ratio_graficos_ca;
 
