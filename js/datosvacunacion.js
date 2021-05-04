@@ -13,7 +13,7 @@ const POBLACION_ESPANIA = 47329000;
 var lc;
 
 const RATIO_GRAFICA_PC = 3.5;
-const RATIO_GRAFICA_MOBIL = 1.2;
+const RATIO_GRAFICA_MOBIL = 1.1;
 let ratio_graficos;
 
 const POS_FECHA_INFORME = 0
@@ -49,10 +49,10 @@ function carga() {
     //obtenerDatosCVSParseadosEnArray();
     if (desdeMovil())
     {
-        alert("visita desde un movil");
+        //alert("visita desde un movil");
         ratio_graficos = RATIO_GRAFICA_MOBIL;
     } else {
-        alert("visita desde un pc");
+        //alert("visita desde un pc");
         ratio_graficos = RATIO_GRAFICA_PC;
     }
   
