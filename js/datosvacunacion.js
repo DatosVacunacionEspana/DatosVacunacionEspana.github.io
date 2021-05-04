@@ -49,10 +49,10 @@ function carga() {
     //obtenerDatosCVSParseadosEnArray();
     if (desdeMovil())
     {
-        //alert("visita desde un movil");
+        alert("visita desde un movil");
         ratio_graficos = RATIO_GRAFICA_MOBIL;
     } else {
-        //alert("visita desde un pc");
+        alert("visita desde un pc");
         ratio_graficos = RATIO_GRAFICA_PC;
     }
   
