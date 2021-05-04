@@ -628,7 +628,7 @@ function dibujargraficaBarras(ctx, ejeX, ejeY, color, leyenda) {
         },
         options: {
             responsive: true,
-            aspectRatio: ratio_graficos,
+            aspectRatio: ratio_graficos_ca,
             scales: {
                 xAxes: [{
                     ticks: {
