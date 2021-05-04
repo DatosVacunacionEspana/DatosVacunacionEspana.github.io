@@ -12,6 +12,10 @@ const POBLACION_MADRID = 6779888;
 const POBLACION_ESPANIA = 47329000;
 var lc;
 
+const RATIO_GRAFICA_PC = 3.5;
+const RATIO_GRAFICA_MOBIL = 1.2;
+let ratio_graficos;
+
 const POS_FECHA_INFORME = 0
 const POS_CAM = 1;
 const POS_DOSIS_PFIZER = 2;
@@ -26,11 +30,31 @@ const POS_PAUTA_COMPLETADA = 10;
 const POS_ULTIMA_VACUNA_REGISTRADA = 11;
 
 
+function desdeMovil ()
+{
+    let es_movil = false;
+    
+        
+        //es_movil = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+        es_movil = (window.screen.width<window.screen.height);
+    
+    return es_movil;
+   
+}
+
 
 function carga() {
 
 
     //obtenerDatosCVSParseadosEnArray();
+    if (desdeMovil())
+    {
+        alert("visita desde un movil");
+        ratio_graficos = RATIO_GRAFICA_MOBIL;
+    } else {
+        alert("visita desde un pc");
+        ratio_graficos = RATIO_GRAFICA_PC;
+    }
   
     parseaGraficosCSVMadrid();
 
@@ -378,7 +402,7 @@ function mostrarGraficoSaboresVacuna (porcentaje_pfizer, porcentaje_astrazeneca,
         data: data,
         options: {
             responsive: true,
-            aspectRatio: 3.5
+            aspectRatio: ratio_graficos
         }
       };
 
@@ -562,7 +586,7 @@ function dibujarGraficaLinea(ctx, ejeX, ejeY, color, leyenda) {
 
         options: {
             responsive: true,
-            aspectRatio: 3.5,
+            aspectRatio: ratio_graficos,
             scales: {
                 yAxes: [{
                     ticks: {
@@ -598,7 +622,7 @@ function dibujargraficaBarras(ctx, ejeX, ejeY, color, leyenda) {
         },
         options: {
             responsive: true,
-            aspectRatio: 3.5,
+            aspectRatio: ratio_graficos,
             scales: {
                 xAxes: [{
                     ticks: {
@@ -630,7 +654,7 @@ function dibujargraficaBarrasVertical(ctx, ejeX, ejeY, color, leyenda) {
 
         options: {
             responsive: true,
-            aspectRatio: 3.5,//más pequeño, más grande se ve
+            aspectRatio: ratio_graficos,//más pequeño, más grande se ve
             scales: {
                 xAxes: [{
                     ticks: {
@@ -647,17 +671,10 @@ function dibujargraficaBarrasVertical(ctx, ejeX, ejeY, color, leyenda) {
                         }
                     }
                 ]
-            }/*,
-            plugins: {
-                legend: {
-                    labels: {
-                        // This more specific font property overrides the global property
-                        font: {
-                            size: 40
-                        }
-                    }
-                }
-            }*/
+            }
         }
     })
 }
+
+//git clone https://github.com/username/username.github.io
+//https:///DatosVacunacionEspana@github.com//DatosVacunacionEspana/DatosVacunacionEspana.github.io.git
