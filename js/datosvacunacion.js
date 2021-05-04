@@ -19,6 +19,7 @@ const RATIO_GRAFICA_MOBIL_CA = 0.8;
 let ratio_graficos;
 let ratio_graficos_ca;
 
+
 const POS_FECHA_INFORME = 0
 const POS_CAM = 1;
 const POS_DOSIS_PFIZER = 2;
