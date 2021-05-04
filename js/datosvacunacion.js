@@ -14,7 +14,10 @@ var lc;
 
 const RATIO_GRAFICA_PC = 3.5;
 const RATIO_GRAFICA_MOBIL = 1.1;
+const RATIO_GRAFICA_PC_CA = 2.5;
+const RATIO_GRAFICA_MOBIL_CA = 0.8;
 let ratio_graficos;
+let ratio_graficos_ca;
 
 const POS_FECHA_INFORME = 0
 const POS_CAM = 1;
@@ -51,9 +54,11 @@ function carga() {
     {
         alert("visita desde un movil");
         ratio_graficos = RATIO_GRAFICA_MOBIL;
+        ratio_graficos_ca = RATIO_GRAFICA_MOBIL_CA;
     } else {
         alert("visita desde un pc");
         ratio_graficos = RATIO_GRAFICA_PC;
+        ratio_graficos_ca = RATIO_GRAFICA_PC_CA;
     }
   
     parseaGraficosCSVMadrid();
