@@ -36,13 +36,13 @@
   <meta name="color-scheme" content="light dark">
   <link rel="stylesheet" href="css/index.css">
   <title>DATOS VACUNACIÓN ESPAÑA</title>
+  <script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
   <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
   <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css" />
   <link rel="stylesheet" href="css/global.css" />
   <link rel="stylesheet" href="css/ghcss.css" />
-
   <script type="module">
     import { menuController } from 'https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/index.esm.js';
     import { alertController } from 'https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/index.esm.js';
@@ -51,6 +51,7 @@
     window.menuController = menuController;
     window.alertController = alertController;
   </script>
+  
 
 
 </head>
@@ -60,6 +61,7 @@
     
 
     <div class="ion-page" id="main-content">
+
       <ion-header>
         <ion-toolbar color="danger">
           <ion-buttons slot="start">
@@ -72,7 +74,7 @@
         <ion-tabs>
           <ion-tab tab="tab-mapa-restricciones">
             <ion-nav>
-              <ion-card>
+              <ion-card class="ion-text-center">
                 <div>
                   <section>
                     <div>
@@ -126,15 +128,17 @@
                 </div>
   
                 <ion-card-header>
-                  <ion-card-title></ion-card-title>
+                  <ion-card-title>Fuente: Ministerio de Sanidad<br><small>Datos actualizados a <span id="fechaAct"></small></ion-card-title>
                 </ion-card-header>
-                <ion-card-content>Fuente: Ministerio de Sanidad<br><small>Datos actualizados a <span id="fechaAct"></span></small></ion-card-content>
+                <ion-card-content>Cotenido ofrecido por<br><a href="http://www.linkedin.com/in/valerianomoreno" target="_blank">
+                  <img src="img/ghp.png">
+                </a></ion-card-content>
               </ion-card>      
             </ion-nav>
           </ion-tab>
           <ion-tab tab="tab-mapa-incidencia-municipios">
             <ion-nav>
-              <ion-card>
+              <ion-card class="ion-text-center">
                 <div>
                   <section>
                     <div>
@@ -186,17 +190,21 @@
                   </section>
                 </div>
   
+                
                 <ion-card-header>
-                  <ion-card-title></ion-card-title>
+                  <ion-card-title>Fuente: Ministerio de Sanidad<br><small>Datos actualizados a <span id="fechaActu"></small></ion-card-title>
                 </ion-card-header>
-                <ion-card-content>Fuente: Ministerio de Sanidad<br> <small>Datos actualizados a <span id="fechaActu"></small></ion-card-content>
-                <p style="display: none">Mi copyright: tu quien ere peazo p</p>
+                <ion-card-content>Cotenido ofrecido por<br><a href="http://www.linkedin.com/in/valerianomoreno" target="_blank">
+                  <img src="img/ghp.png">
+                </a></ion-card-content>
+                
+                <p style="display: none">Mi copyright: tu quien ere peazo V</p>
               </ion-card>
             </ion-nav>
           </ion-tab>
           <ion-tab tab="tab-mapa-incidencia-zbs">
             <ion-nav>
-              <ion-card>
+              <ion-card class="ion-text-center">
                 <div>
                   <section>
                     <div>
@@ -240,12 +248,16 @@
                 </div>
   
                 <ion-card-header>
-                  <ion-card-title></ion-card-title>
+                  <ion-card-title>Fuente: Ministerio de Sanidad<br><small>Datos actualizados a <span id="fechaActua"></small></ion-card-title>
                 </ion-card-header>
-                <ion-card-content>Fuente: Ministerio de Sanidad<br><small>Datos actualizados a <span id="fechaActua"></small></ion-card-content>
+                <ion-card-content>Cotenido ofrecido por<br><a href="http://www.linkedin.com/in/valerianomoreno" target="_blank">
+                  <img src="img/ghp.png">
+                </a></ion-card-content>
+                
               </ion-card>
             </ion-nav>
           </ion-tab>
+          
           <ion-tab-bar slot="bottom" color="danger">
             <ion-tab-button tab="tab-mapa-restricciones">
               <ion-label>DATOS MADRID</ion-label>
@@ -259,8 +271,10 @@
             </ion-tab-button>
           </ion-tab-bar>
         </ion-tabs>
-        
+           
       </ion-content>
+    
+   
     </div>
     
   </ion-app>
