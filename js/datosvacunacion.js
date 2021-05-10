@@ -32,7 +32,7 @@ const POS_PORCENTAJE_SOBRE_ENTREGADAS = 8;
 const POS_PERSONAS_CON_ALMENOS_UNA_DOSIS = 9;
 const POS_PAUTA_COMPLETADA = 10;
 const POS_ULTIMA_VACUNA_REGISTRADA = 11;
-
+let refresher = document.getElementById('refresher');
 
 function desdeMovil ()
 {
@@ -45,6 +45,7 @@ function desdeMovil ()
     return es_movil;
    
 }
+
 
 
 function carga() {
@@ -223,6 +224,7 @@ async function parseaGraficosCSVMadrid() {
             mostrarSeccionCCAA(array_datos_parseado);
 
             lc.dismiss();
+            refresher.complete();
 
         })
         .catch(error => {
@@ -682,5 +684,14 @@ function dibujargraficaBarrasVertical(ctx, ejeX, ejeY, color, leyenda) {
     })
 }
 
-//git clone https://github.com/username/username.github.io
-//https:///DatosVacunacionEspana@github.com//DatosVacunacionEspana/DatosVacunacionEspana.github.io.git
+
+
+refresher.addEventListener('ionRefresh', refrescar);
+
+function refrescar ()
+{
+    console.log ("tocó el spinner pabajo");
+    carga();
+    
+   
+}
