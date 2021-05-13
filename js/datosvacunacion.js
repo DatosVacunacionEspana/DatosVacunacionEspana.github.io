@@ -32,7 +32,7 @@ const POS_PORCENTAJE_SOBRE_ENTREGADAS = 8;
 const POS_PERSONAS_CON_ALMENOS_UNA_DOSIS = 9;
 const POS_PAUTA_COMPLETADA = 10;
 const POS_ULTIMA_VACUNA_REGISTRADA = 11;
-let refresher = document.getElementById('refresher');
+//let refresher = document.getElementById('refresher');
 
 function desdeMovil ()
 {
@@ -236,7 +236,7 @@ async function parseaGraficosCSVMadrid() {
             mostrarSeccionCCAA(array_datos_parseado);
 
             lc.dismiss();
-            refresher.complete();
+            //refresher.complete();
 
         })
         .catch(error => {
@@ -707,7 +707,7 @@ function dibujargraficaBarrasVertical(ctx, ejeX, ejeY, color, leyenda) {
 }
 
 
-
+/*
 refresher.addEventListener('ionRefresh', refrescar);
 
 function refrescar ()
@@ -716,4 +716,4 @@ function refrescar ()
     carga();
     
    
-}
+}*/
