@@ -100,6 +100,7 @@ function mostrarSeccionEspania(array_datos_parseado) {
     let ultimos_datos_Espania = datosTotales[datosTotales.length - 1];//OBTENEMOS EL ÚLTIMO REGISTRO DE TOTALES
 
     muestraDatosVacunaEspanaDosPuntoCero(ultimos_datos_Espania);
+    mostrarDosisEspaniaEnUltimoDia(datosTotales);
 
     let ultimos7_variaciones_esp_entragadas = [[],[]];//array bidimensional
     ultimos7_variaciones_esp_entragadas = obtenerUltimos7SaltosDeDosisEntregadas (datosTotales);
@@ -181,12 +182,23 @@ function obtenerUltimos7DatosInmunizadosConSalto(datos)
     return ultimos7_variaciones_madrid_inmunizadas;
 }
 
+function mostrarDosisMadridEnUltimoDia (datosMadrid)
+{
+    let ddaud = Number.parseInt (datosMadrid[datosMadrid.length - 1][POS_DOSIS_ADMINISTRADAS]);
+    let ddapd = Number.parseInt (datosMadrid[datosMadrid.length - 2][POS_DOSIS_ADMINISTRADAS]);
+    let dud = (ddaud-ddapd);
+    console.log ("Ultimo dia " + dud);
+    let eud = document.getElementById("dosisUltimaJornadaM");
+    eud.innerHTML = (new Intl.NumberFormat("es-ES").format(dud));
+}
 function mostrarSeccionMadrid(array_datos_parseado) {
     //---- SLIDE 1 -----  
     let datosMadrid = [];
     datosMadrid = array_datos_parseado.filter(item => item[1].localeCompare('Madrid') == 0);//FILTRAMOS SOLO LOS DATOS DE MADRID
     let ultimos_datos_Madrid = datosMadrid[datosMadrid.length - 1];//OBTENEMOS LOS ÚLTIMOS DATOS DE MADRID
     muestraDatosVacunaMadridDosPuntoCero(ultimos_datos_Madrid);//mostramos los datos textuales
+    mostrarDosisMadridEnUltimoDia(datosMadrid);
+    
 
     let ultimos7_variaciones_madrid_entragadas = [[],[]];//array bidimensional
     ultimos7_variaciones_madrid_entragadas = obtenerUltimos7SaltosDeDosisEntregadas (datosMadrid);
@@ -414,6 +426,16 @@ function mostrarGraficoSaboresVacuna (porcentaje_pfizer, porcentaje_astrazeneca,
 
     var chart = new Chart(elemento_canvas_graficoSabores, config);
  
+}
+
+function mostrarDosisEspaniaEnUltimoDia (datosEspania)
+{
+    let ddaud = Number.parseInt (datosEspania[datosEspania.length - 1][POS_DOSIS_ADMINISTRADAS]);
+    let ddapd = Number.parseInt (datosEspania[datosEspania.length - 2][POS_DOSIS_ADMINISTRADAS]);
+    let dud = (ddaud-ddapd);
+    console.log ("Ultimo dia " + dud);
+    let eud = document.getElementById("dosisUltimaJornadaE");
+    eud.innerHTML = (new Intl.NumberFormat("es-ES").format(dud));
 }
 
 function muestraDatosVacunaEspanaDosPuntoCero(ultimos_datos_Espania) {
