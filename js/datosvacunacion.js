@@ -102,6 +102,7 @@ function mostrarSeccionEspania(array_datos_parseado) {
 
     muestraDatosVacunaEspanaDosPuntoCero(ultimos_datos_Espania);
     mostrarDosisEspaniaEnUltimoDia(datosTotales);
+    mostrarInmunizadosEspaniaEnUltimoDia(datosTotales);
 
     let ultimos7_variaciones_esp_entragadas = [[],[]];//array bidimensional
     ultimos7_variaciones_esp_entragadas = obtenerUltimos7SaltosDeDosisEntregadas (datosTotales);
@@ -192,6 +193,16 @@ function mostrarDosisMadridEnUltimoDia (datosMadrid)
     let eud = document.getElementById("dosisUltimaJornadaM");
     eud.innerHTML = (new Intl.NumberFormat("es-ES").format(dud));
 }
+
+function mostrarInmunizadosMadridEnUltimoDia (datosMadrid)
+{
+    let ddaud = Number.parseInt (datosMadrid[datosMadrid.length - 1][POS_PAUTA_COMPLETADA]);
+    let ddapd = Number.parseInt (datosMadrid[datosMadrid.length - 2][POS_PAUTA_COMPLETADA]);
+    let dud = (ddaud-ddapd);
+    console.log ("Ultimo dia " + dud);
+    let eud = document.getElementById("inmunizadosUltimaJornadaM");
+    eud.innerHTML = (new Intl.NumberFormat("es-ES").format(dud));
+}
 function mostrarSeccionMadrid(array_datos_parseado) {
     //---- SLIDE 1 -----  
     let datosMadrid = [];
@@ -199,6 +210,7 @@ function mostrarSeccionMadrid(array_datos_parseado) {
     let ultimos_datos_Madrid = datosMadrid[datosMadrid.length - 1];//OBTENEMOS LOS ÚLTIMOS DATOS DE MADRID
     muestraDatosVacunaMadridDosPuntoCero(ultimos_datos_Madrid);//mostramos los datos textuales
     mostrarDosisMadridEnUltimoDia(datosMadrid);
+    mostrarInmunizadosMadridEnUltimoDia(datosMadrid);
     
 
     let ultimos7_variaciones_madrid_entragadas = [[],[]];//array bidimensional
@@ -437,6 +449,17 @@ function mostrarDosisEspaniaEnUltimoDia (datosEspania)
     let dud = (ddaud-ddapd);
     console.log ("Ultimo dia " + dud);
     let eud = document.getElementById("dosisUltimaJornadaE");
+    eud.innerHTML = (new Intl.NumberFormat("es-ES").format(dud));
+}
+
+
+function mostrarInmunizadosEspaniaEnUltimoDia (datosEspania)
+{
+    let ddaud = Number.parseInt (datosEspania[datosEspania.length - 1][POS_PAUTA_COMPLETADA]);
+    let ddapd = Number.parseInt (datosEspania[datosEspania.length - 2][POS_PAUTA_COMPLETADA]);
+    let dud = (ddaud-ddapd);
+    console.log ("Ultimo dia " + dud);
+    let eud = document.getElementById("inmunizadosUltimaJornadaE");
     eud.innerHTML = (new Intl.NumberFormat("es-ES").format(dud));
 }
 
