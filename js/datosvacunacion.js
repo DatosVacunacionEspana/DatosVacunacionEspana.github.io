@@ -51,7 +51,7 @@ function desdeMovil ()
 function carga() {
 
     document.getElementById("srstats").hidden = true;
-
+    console.log ("expendiente X");
     //obtenerDatosCVSParseadosEnArray();
     if (desdeMovil())
     {
