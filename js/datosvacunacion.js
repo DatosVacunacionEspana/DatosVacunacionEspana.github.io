@@ -50,6 +50,7 @@ function desdeMovil ()
 
 function carga() {
 
+    document.getElementById("srstats").hidden = true;
 
     //obtenerDatosCVSParseadosEnArray();
     if (desdeMovil())
