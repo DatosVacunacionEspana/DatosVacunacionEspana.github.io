@@ -35,6 +35,7 @@ const POS_PAUTA_COMPLETADA = 11;
 const POS_PORCENTAJE_PAUTA_INCOMPLETA = 12;
 const POS_PERSONAS_DOSIS_ADICIONALES = 13;
 const POS_ULTIMA_VACUNA_REGISTRADA = 14;
+const NUMERO_CCAA_VACUNA = 21;//id en número de CCAA en el STA
 //let refresher = document.getElementById('refresher');
 
 function desdeMovil ()
@@ -576,7 +577,8 @@ function mostrarSeccionCCAA(datos) {
     let dosis_adminx2 = [];
     let dosis_por_admin = [];
 
-    for (let i = (datos.length - 20); i < datos.length; i++) {
+     // for (let i = (datos.length - 20); i < datos.length; i++) {
+    for (let i = (datos.length - NUMERO_CCAA_VACUNA); i < datos.length; i++) {
         ccaa.push(datos[i][POS_CAM]);
         dosis_admin.push(Number.parseInt(datos[i][POS_DOSIS_ADMINISTRADAS]));
         dosis_entregadas.push(Number.parseInt(datos[i][POS_DOSIS_ENTREGADAS]));
